@@ -1,6 +1,6 @@
-@extends('layout.template')
+@extends('layout.index')
 <!-- START FORM -->
-@section('konten')
+@section('content')
 
 <style>
     .btn-custom-red {
@@ -8,7 +8,7 @@
       border-color: #ff0000;
     }
   </style>
-<form action='{{url('mp')}}' method='post'>
+<form action='{{url('cs')}}' method='post'>
 {{-- <form  method='post'> --}}
 @csrf    
     <div class="my-3 p-3 bg-body rounded shadow-sm">
@@ -20,7 +20,7 @@
             {{-- </div> --}}
             {{-- <label for="combobox">Select an option:</label> --}}
             <div class="col-sm-10">
-                <select class="form-control" name="product_name" id="product_name">
+                <select class="form-control" name="product_name" id="product_name" value="{{Session::get('product_name')}}">
                 @foreach ($options as $value => $label)
                     <option value="{{ $value }}">{{ $label }}</option>
                 @endforeach
@@ -76,7 +76,7 @@
             <label for="temp_start_pouring" class="col-sm-2 col-form-label text-end">Temp Start Pouring</label>
             <div class="col-sm-2">
                 {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
-                <input type="time" class="form-control" name='temp_start_pouring' value="{{Session::get('temp_start_pouring')}}" id="temp_start_pouring">
+                <input type="number" class="form-control" name='temp_start_pouring' value="{{Session::get('temp_start_pouring')}}" id="temp_start_pouring">
             </div>
         </div>
 
@@ -120,17 +120,17 @@
             <label for="fading_time" class="col-sm-2 col-form-label text-end">Fading Time</label>
             <div class="col-sm-2">
                 {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
-                <input type="time" class="form-control" name='fading_time' value="{{Session::get('fading_time')}}" id="fading_time">
+                <input type="number" class="form-control" name='fading_time' value="{{Session::get('fading_time')}}" id="fading_time">
             </div>
             <label for="defect_short" class="col-sm-2 col-form-label text-end">Defect Short Pouring</label>
             <div class="col-sm-2">
                 {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
-                <input type="text" type="any" class="form-control" name='defect_short' value="{{Session::get('defect_short')}}" id="defect_short">
+                <input type="number" class="form-control" name='defect_short' value="{{Session::get('defect_short')}}" id="defect_short">
             </div>
             <label for="mold_bocor" class="col-sm-2 col-form-label text-end">Defect Mold Bocor</label>
             <div class="col-sm-2">
                 {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
-                <input type="text" class="form-control" name='mold_bocor' value="{{Session::get('mold_bocor')}}" id="mold_bocor">
+                <input type="number" class="form-control" name='mold_bocor' value="{{Session::get('mold_bocor')}}" id="mold_bocor">
             </div>
         </div>
 
@@ -157,7 +157,7 @@
             <label for="jabatan" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10 text-end">
                 
-                <a href='{{url('mp')}}' class="btn btn-primary btn-custom-red" name="back"><i class="fa fa-backward" aria-hidden="true"></i> BACK</a>
+                <a href='{{url('cs')}}' class="btn btn-primary btn-custom-red" name="back"><i class="fa fa-backward" aria-hidden="true"></i> BACK</a>
                 <button type="submit" class="btn btn-success " name="submit">SIMPAN <i class="fa fa-bookmark" aria-hidden="true"> </i></button>
                 
             </div>

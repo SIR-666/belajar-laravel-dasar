@@ -1,6 +1,6 @@
-@extends('layout.template')
+@extends('layout.index')
 <!-- START FORM -->
-@section('konten')
+@section('content')
 
 <style>
     .btn-custom-red {

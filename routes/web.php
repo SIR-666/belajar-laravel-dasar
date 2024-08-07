@@ -20,4 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource('mp',manpowerController::class); 
-Route::resource('cs',qc_checkController::class); 
+Route::resource('cs',qc_checkController::class);
+
+// Route::delete('/qc_cheksheet/{id}', [qc_checkController::class, 'destroy']);
+Route::get('cs-test',[qc_checkController::class,'test']); 
