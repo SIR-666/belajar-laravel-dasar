@@ -1,19 +1,26 @@
 @extends('layout.index')
 <!-- START DATA -->
 @section('content')
-    <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <!-- Bootstrap CSS -->
+    {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <form> --}}
 
+    
 
-        <!-- TOMBOL TAMBAH DATA -->
+    @csrf
+    {{-- <div class="my-3 p-3 bg-body rounded shadow-sm modal-xl"> --}}
+    <!-- TOMBOL TAMBAH DATA -->
+    <div class="card-body">
         <div class="pb-3">
             <a href='cs/create' class="btn btn-primary">+ Tambah Data</a>
         </div>
         <div class="pb-1">
-            
+
         </div>
 
         <div class="table-responsive">
-            <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+            <table id="zero_config" class="table table-striped border table-bordered display text-nowrap"
+                style="width: 100%">
                 {{-- <table class="table table-striped"> --}}
                 <thead>
                     <tr style="font-size: 12px">
@@ -111,10 +118,14 @@
                     @endforeach
                 </tbody>
             </table>
-        </div> 
-        
+        </div>
+
         <!-- AKHIR DATA -->
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+        {{-- </form> --}}
     @endsection
+
+
 
     @section('modal')
         <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
@@ -224,7 +235,7 @@
 
 
         <!-- Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> --}}
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -273,40 +284,40 @@
                     var modalBody = viewModal.querySelector('.modal-body');
                     modalBody.innerHTML = `
     
-    <p><strong>Product Name:</strong> ${productName}</p>
-    <p><strong>No Ladle:</strong> ${noLadle}</p>
-    <p><strong>Material:</strong> ${material}</p>
-    <p><strong>Temp. Taping:</strong> ${tempTaping}</p>
-    <p><strong>Start Time Tapping:</strong> ${startTimeTapping}</p>
-    <p><strong>Reaction Time:</strong> ${reactionTime}</p>
-    <p><strong>Start Time Pouring:</strong> ${timeStartPouring}</p>
-    <p><strong>Temp. Start Pouring:</strong> ${tempStartPouring}</p>
-    <p><strong>N1 TPM:</strong> ${n1Tpm}</p>
-    <p><strong>N2 TPM:</strong> ${n2Tpm}</p>
-    <p><strong>N3 TPM:</strong> ${n3Tpm}</p>
-    <p><strong>Act C:</strong> ${actC}</p>
-    <p><strong>Act Si:</strong> ${actSi}</p>
-    <p><strong>Act Mn:</strong> ${actMn}</p>
-    <p><strong>Act Cr:</strong> ${actCr}</p>
-    <p><strong>Act Cu:</strong> ${actCu}</p>
-    <p><strong>Act Mg:</strong> ${actMg}</p>
-    <p><strong>Act S:</strong> ${actS}</p>
-    <p><strong>Act Sn:</strong> ${actSn}</p>
-    <p><strong>Act Ni:</strong> ${actNi}</p>
-    <p><strong>Time Finish Pouring:</strong> ${timeFinishPouring}</p>
-    <p><strong>Temp. Finish Pouring:</strong> ${tempFinishPouring}</p>
-    <p><strong>PCS Mold:</strong> ${pcsMold}</p>
-    <p><strong>Fading Time:</strong> ${fadingTime}</p>
-    <p><strong>Short Pour:</strong> ${shortPour}</p>
-    <p><strong>Mold Bocor:</strong> ${moldBocor}</p>
-    <p><strong>Operator Pouring:</strong> ${opPouring}</p>
-    <p><strong>Marubo:</strong> ${marubo}</p>
-    <p><strong>Frm:</strong> ${frm}</p>
-    <p><strong>Remark:</strong> ${remark}</p>
-    <p><strong>Created At:</strong> ${createdAt}</p>
-    <p><strong>Updated At:</strong> ${updatedAt}</p>
-    <p><strong>Charging:</strong> ${charging}</p>
-  `;
+                <p><strong>Product Name:</strong> ${productName}</p>
+                <p><strong>No Ladle:</strong> ${noLadle}</p>
+                <p><strong>Material:</strong> ${material}</p>
+                <p><strong>Temp. Taping:</strong> ${tempTaping}</p>
+                <p><strong>Start Time Tapping:</strong> ${startTimeTapping}</p>
+                <p><strong>Reaction Time:</strong> ${reactionTime}</p>
+                <p><strong>Start Time Pouring:</strong> ${timeStartPouring}</p>
+                <p><strong>Temp. Start Pouring:</strong> ${tempStartPouring}</p>
+                <p><strong>N1 TPM:</strong> ${n1Tpm}</p>
+                <p><strong>N2 TPM:</strong> ${n2Tpm}</p>
+                <p><strong>N3 TPM:</strong> ${n3Tpm}</p>
+                <p><strong>Act C:</strong> ${actC}</p>
+                <p><strong>Act Si:</strong> ${actSi}</p>
+                <p><strong>Act Mn:</strong> ${actMn}</p>
+                <p><strong>Act Cr:</strong> ${actCr}</p>
+                <p><strong>Act Cu:</strong> ${actCu}</p>
+                <p><strong>Act Mg:</strong> ${actMg}</p>
+                <p><strong>Act S:</strong> ${actS}</p>
+                <p><strong>Act Sn:</strong> ${actSn}</p>
+                <p><strong>Act Ni:</strong> ${actNi}</p>
+                <p><strong>Time Finish Pouring:</strong> ${timeFinishPouring}</p>
+                <p><strong>Temp. Finish Pouring:</strong> ${tempFinishPouring}</p>
+                <p><strong>PCS Mold:</strong> ${pcsMold}</p>
+                <p><strong>Fading Time:</strong> ${fadingTime}</p>
+                <p><strong>Short Pour:</strong> ${shortPour}</p>
+                <p><strong>Mold Bocor:</strong> ${moldBocor}</p>
+                <p><strong>Operator Pouring:</strong> ${opPouring}</p>
+                <p><strong>Marubo:</strong> ${marubo}</p>
+                <p><strong>Frm:</strong> ${frm}</p>
+                <p><strong>Remark:</strong> ${remark}</p>
+                <p><strong>Created At:</strong> ${createdAt}</p>
+                <p><strong>Updated At:</strong> ${updatedAt}</p>
+                <p><strong>Charging:</strong> ${charging}</p>
+                `;
                 });
             });
         </script>

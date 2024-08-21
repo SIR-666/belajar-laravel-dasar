@@ -3,7 +3,7 @@
 
 <head>
     <!--  Title -->
-    <title>Mordenize</title>
+    <title>ISPS</title>
     <!--  Required Meta Tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,6 +44,10 @@
     {{-- <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}"> --}}
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script> --}}
+
+    
+    
+
 </head>
 
 <body>
@@ -56,15 +60,42 @@
         <img src="{{ asset('dist/images/logos/favicon.ico') }}" alt="loader" class="lds-ripple img-fluid" />
     </div>
     <!--  Body Wrapper -->
-    <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
          @include('layout.sidebar')
         <!--  Main wrapper -->
+        
         <div class="body-wrapper">
-            @include('layout.headbar')
+            {{-- <nav> --}}
+                @include('layout.headbar')
+            {{-- </nav> --}}
+
             <div class="container-fluid">
+                <div class="card bg-light-info shadow-none position-relative overflow-hidden">
+                    <div class="card-body px-4 py-3">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <h4 class="fw-semibold mb-8">Checksheet Pouring</h4>
+                                {{-- <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a class="text-muted " href="./index.html">Dashboard</a></li>
+                                  <li class="breadcrumb-item" aria-current="page">Table Datatable Api</li>
+                                </ol>
+                              </nav> --}}
+                            </div>
+                            <div class="col-3">
+                                <div class="text-center mb-n5">
+                                    <img src="{{ asset('dist/images/breadcrumb/ChatBc.png')}}" alt="" class="img-fluid mb-n4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
-                    @yield('content')
+                    <div class="col-12">
+                        <div class="card">
+                            @yield('content')
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -608,6 +639,9 @@
     @yield('modal')
     <!--  Customizer -->
     <!--  Import Js Files -->
+    {{-- JavaScript --}}
+
+    
     <script src="{{ asset('dist/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
     <script src="{{ asset('dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -616,12 +650,17 @@
     <script src="{{ asset('dist/js/app.init.js') }}"></script>
     <script src="{{ asset('dist/js/app-style-switcher.js') }}"></script>
     <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
+
     <script src="{{ asset('dist/js/custom.js') }}"></script>
     <script src="{{ asset('dist/js/dashboard.js') }}"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script> --}}
     <script src="{{ asset('dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('dist/js/datatable/datatable-basic.init.js') }}"></script>
+
+    <!-- ---------------------------------------------- -->
+
+
     @yield('addJS')
 </body>
 

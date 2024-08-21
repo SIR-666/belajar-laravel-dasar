@@ -11,3 +11,5 @@ class qc_cheksheet extends Model
     protected $table='qc_cheksheet';
     use HasFactory;
 }
+
+

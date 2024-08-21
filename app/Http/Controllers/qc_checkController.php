@@ -7,6 +7,7 @@ use App\Models\qc_checksheet;
 use Carbon\Carbon;
 use App\Models\qc_cheksheet;
 use App\Models\rphs;
+use Illuminate\Support\Facades\Auth;
 // use App\Models\rphs;
 use Illuminate\Support\Facades\Session;
 
@@ -25,7 +26,7 @@ class qc_checkController extends Controller
     //    return view('qc_checksheet.index_qc')->with('data', $data);
     // }
 
-// Method to show the edit form
+    // Method to show the edit form
     public function edit($id)
     {
         $data = qc_cheksheet::where('product_name', $id)->first();
@@ -46,7 +47,7 @@ class qc_checkController extends Controller
         return $data;
     }
 
-    
+
 
     // Method to show the index page
     public function index()
@@ -104,6 +105,29 @@ class qc_checkController extends Controller
     {
         return 'Hi';
     }
+
+
+    public function getProductDetails(Request $request)
+    {
+        $today = Carbon::today()->format('Y-m-d');
+        $productName = $request->input('product_name');
+        $product = rphs::where('partname', $productName)
+        ->whereRaw("CONVERT(varchar, tgl_pouring, 23) = ?", [$today])
+        ->first();
+
+        if ($product) {
+            return response()->json([
+                'material' => $product->material,
+                'qty_mould' => $product->qty_mould,
+            ]);
+        }
+
+        return response()->json([
+            'material' => '',
+            'qty_mould' => '',
+        ]);
+    }
+
 
     public function store(Request $request)
     {
@@ -176,7 +200,8 @@ class qc_checkController extends Controller
 
             'marubo' => $request->marubo,
             'frm' => $request->frm,
-            'remark' => $request->remark
+            'remark' => $request->remark,
+            'op_pouring' => Auth::user()->name
         ];
         qc_cheksheet::create($data);
         //Session::flash('success', 'Data has been successfully saved!');
