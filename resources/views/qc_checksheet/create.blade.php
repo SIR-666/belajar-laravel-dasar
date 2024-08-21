@@ -41,14 +41,10 @@
         <div class="my-3 p-3 bg-body rounded shadow-sm modal-xl">
             <div class="mb-3 row">
                 <label for="product_name" class="col-sm-2 col-form-label text-end">Nama Product</label>
-                {{-- <div class="col-sm-10"> --}}
-                {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
-                {{-- <input type="combobox" class="form-control" name='product_name' value="{{Session::get('product_name')}}" id="product_name"> --}}
-                {{-- </div> --}}
-                {{-- <label for="combobox">Select an option:</label> --}}
                 <div class="col-sm-10">
                     <select class="form-control" name="product_name" id="product_name"
                         value="{{ Session::get('product_name') }}">
+                        <option disabled selected>PILIH PRODUCT</option>
                         @foreach ($options as $value => $label)
                             <option value="{{ $value }}">{{ $label }}</option>
                         @endforeach
@@ -57,18 +53,20 @@
             </div>
 
             <div class="mb-3 row">
+                <label for="material" class="col-sm-2 col-form-label text-end">Material</label>
+                <div class="col-sm-2">
+                    {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
+                    <input type="text" class="form-control" name='material' readonly
+                        id="material">
+                </div>
+
                 <label for="no_ladle" class="col-sm-2 col-form-label text-end">No Ladle</label>
                 <div class="col-sm-2">
                     {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
                     <input type="number" class="form-control" name='no_ladle' value="{{ Session::get('no_ladle') }}"
                         id="no_ladle">
                 </div>
-                <label for="material" class="col-sm-2 col-form-label text-end">Material</label>
-                <div class="col-sm-2">
-                    {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
-                    <input type="text" class="form-control" name='material' value="{{ Session::get('material') }}"
-                        id="material">
-                </div>
+
                 <label for="charging" class="col-sm-2 col-form-label text-end">Charging</label>
                 <div class="col-sm-2">
                     {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
@@ -85,7 +83,7 @@
                 <div class="col-sm-2">
                     {{-- <input type="number" class="form-control" name='noreg' id="noreg"> --}}
                     <input type="text" class="form-control ocr-trigger" name='temp_tapping'
-                        value="{{ Session::get('temp_tapping') }}" id="temp_tapping" readonly>
+                        value="" id="temp_tapping" readonly>
                 </div>
                 <label for="start_tapping" class="col-sm-2 col-form-label text-end">Start Tapping</label>
                 <div class="col-sm-2">
@@ -295,10 +293,10 @@
                     }
                 }) => {
                     // Display the OCR result in the input field
-                    // $('#temp_start_pouring').val(text);
                     if (currentInput) {
                         currentInput.val(text);
                     }
+
                     // Stop the stream and hide the modal after OCR processing
                     video.srcObject.getTracks().forEach(track => track.stop());
                     $('#cameraModal').modal('hide');
@@ -312,42 +310,6 @@
             });
         });
     </script>
-
-
-    {{-- <script>
-        $(document).ready(function() {
-            $('#temp_start_pouring').on('click', function() {
-                // Open camera
-                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                    navigator.mediaDevices.getUserMedia({
-                        video: true
-                    }).then(function(stream) {
-                        // Create a video element to display the stream
-                        const video = document.createElement('video');
-                        video.srcObject = stream;
-                        video.play();
-
-                        // Append the video element to the body or a specific container
-                        document.body.appendChild(video);
-
-                        // Stop the stream when the video is clicked (for demonstration purposes)
-                        video.addEventListener('click', function() {
-                            stream.getTracks().forEach(track => track.stop());
-                            document.body.removeChild(video);
-                        });
-                    }).catch(function(err) {
-                        console.error('Error accessing camera: ' + err);
-                    });
-                } else {
-                    alert('Your browser does not support camera access.');
-                }
-            });
-        });
-    </script> --}}
-
-
-
-    <!-- AKHIR FORM -->
 @endsection
 
 @section('modal')

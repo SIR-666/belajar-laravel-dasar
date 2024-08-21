@@ -25,18 +25,18 @@
     <!-- --------------------------------------------------- -->
     <link rel="stylesheet" href="{{ asset('dist/libs/prismjs/themes/prism-okaidia.min.css') }}">
 
-    
+
 
     <!-- --------------------------------------------------- -->
     <!-- Datatable -->
     <!-- --------------------------------------------------- -->
     <link rel="stylesheet" href="{{ asset('dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css')}}">
-    
+
 
     <!-- --------------------------------------------------- -->
     <!-- Core Css -->
     <!-- --------------------------------------------------- -->
-    
+
     <link  id="themeColors"  rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
     {{-- <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" /> --}}
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> --}}
@@ -45,8 +45,8 @@
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script> --}}
 
-    
-    
+
+
 
 </head>
 
@@ -63,7 +63,7 @@
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
          @include('layout.sidebar')
         <!--  Main wrapper -->
-        
+
         <div class="body-wrapper">
             {{-- <nav> --}}
                 @include('layout.headbar')
@@ -569,7 +569,7 @@
                                 data-bs-placement="top" data-bs-title="ORANGE_THEME">
                                 <i class="ti ti-check text-white d-flex align-items-center justify-content-center fs-5"></i>
                             </a>
-                        </li>                        
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -635,13 +635,13 @@
             </div>
         </div>
     </div>
-    
+
     @yield('modal')
     <!--  Customizer -->
     <!--  Import Js Files -->
     {{-- JavaScript --}}
 
-    
+
     <script src="{{ asset('dist/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
     <script src="{{ asset('dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -652,7 +652,6 @@
     <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
 
     <script src="{{ asset('dist/js/custom.js') }}"></script>
-    <script src="{{ asset('dist/js/dashboard.js') }}"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script> --}}
     <script src="{{ asset('dist/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>

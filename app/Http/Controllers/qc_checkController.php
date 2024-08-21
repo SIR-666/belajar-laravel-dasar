@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Session;
 
 class qc_checkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index()
-    // {
-    //     //return 'Hi';
-    //     $data = qc_cheksheet::paginate();
-    //    // return view('manpower.index')->with('data', $data);
-    //    return view('qc_checksheet.index_qc')->with('data', $data);
-    // }
+    public function index()
+    {
+        $data = qc_cheksheet::get();
+
+        // Format the time fields for each item in the collection
+        foreach ($data as $item) {
+            $item = $this->formatTimeFields($item);
+        }
+
+        return view('qc_checksheet.index_qc')->with('data', $data);
+        //return view('layout.index');
+    }
 
     // Method to show the edit form
     public function edit($id)
@@ -46,25 +46,6 @@ class qc_checkController extends Controller
         }
         return $data;
     }
-
-
-
-    // Method to show the index page
-    public function index()
-    {
-        $data = qc_cheksheet::paginate();
-
-        // Format the time fields for each item in the collection
-        foreach ($data as $item) {
-            $item = $this->formatTimeFields($item);
-        }
-
-        return view('qc_checksheet.index_qc')->with('data', $data);
-        //return view('layout.index');
-    }
-
-
-
     /**
      * Show the form for creating a new resource.
      *
